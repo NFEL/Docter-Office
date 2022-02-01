@@ -1,4 +1,5 @@
-
+import uvicorn
+import asyncio
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,3 +20,6 @@ def get_application():
 
 
 app = get_application()
+
+if __name__ == '__main__':
+    uvicorn.run('main:app', reload=True)
