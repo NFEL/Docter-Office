@@ -8,3 +8,5 @@ class Weekdays(Enum):
     THU = "Thursday"
     FRI = "Friday"
 
+    def __hash__(self) :
+        return hash(self.value)

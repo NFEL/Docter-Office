@@ -1,12 +1,16 @@
-from calendar import MONDAY, SATURDAY
 from datetime import datetime
-from typing import Dict
-from pydantic import BaseModel
-from Weekdays import Weekdays
+from typing import Dict, Tuple
+from .Weekdays import Weekdays
+from .FileDataSaver import DatabaseBaseModel
 
-class Doctor(BaseModel):
+from collections import namedtuple
+
+# VisitDays = namedtuple('VisitDays' , ['Day', 'date'])
+
+class Doctor(DatabaseBaseModel):
     first_name: str
     last_name: str
     specialty: str
     address: str
-    present_time: Dict[Weekdays,datetime]
+    present_time: Tuple[Tuple[Weekdays,datetime]]
+
